@@ -37,7 +37,6 @@ func Init() {
 
 	peerConnection.OnTrack(func(track *webrtc.TrackRemote, receiver *webrtc.RTPReceiver) {
 		log.Println("Track received:", track.Kind())
-<<<<<<< HEAD
 
 		// Handle the track (e.g., play audio/video)
 		// if track.Kind() == webrtc.RTPCodecTypeVideo {
@@ -45,9 +44,7 @@ func Init() {
 		// } else if track.Kind() == webrtc.RTPCodecTypeAudio {
 		// 	go handleAudioTrack(track)
 		// }
-=======
 		// track handling e.g. play audio/video
->>>>>>> df38c5970cdaadfe25d8e9bde799d55c18cc50d0
 	})
 }
 
