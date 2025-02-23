@@ -37,10 +37,40 @@ func Init() {
 
 	peerConnection.OnTrack(func(track *webrtc.TrackRemote, receiver *webrtc.RTPReceiver) {
 		log.Println("Track received:", track.Kind())
+
 		// Handle the track (e.g., play audio/video)
+		// if track.Kind() == webrtc.RTPCodecTypeVideo {
+		// 	go handleVideoTrack(track)
+		// } else if track.Kind() == webrtc.RTPCodecTypeAudio {
+		// 	go handleAudioTrack(track)
+		// }
 	})
 }
 
+// func handleVideoTrack(track *webrtc.TrackRemote) {
+// 	for {
+// 		rtpPacket, _, err := track.ReadRTP()
+// 		if err != nil {
+// 			log.Println("Error reading RTP packet:", err)
+// 			return
+// 		}
+
+// 		// Send the RTP packet to the frontend for rendering
+// 		// it requires integration with the frontend (e.g., using WebSockets or WebRTC data channels)
+// 	}
+// }
+
+// func handleAudioTrack(track *webrtc.TrackRemote) {
+// 	for {
+// 		rtpPacket, _, err := track.ReadRTP()
+// 		if err != nil {
+// 			log.Println("Error reading RTP packet:", err)
+// 			return
+// 		}
+
+//			// Send the RTP packet to the frontend for rendering
+//		}
+//	}
 func CreateOffer() (*webrtc.SessionDescription, error) {
 	offer, err := peerConnection.CreateOffer(nil)
 	if err != nil {
