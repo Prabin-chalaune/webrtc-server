@@ -14,7 +14,7 @@ func Init() {
 			{
 				URLs: []string{"stun:stun.l.google.com:19302"},
 			},
-			// Add TURN server credentials here for production
+			// adding TURN server credentials here ---- for production
 		},
 	}
 
@@ -27,7 +27,7 @@ func Init() {
 	peerConnection.OnICECandidate(func(candidate *webrtc.ICECandidate) {
 		if candidate != nil {
 			log.Println("New ICE candidate:", candidate)
-			// Send candidate to remote peer via signaling
+			// Sending candidate to remote peer via signaling
 		}
 	})
 
@@ -37,7 +37,7 @@ func Init() {
 
 	peerConnection.OnTrack(func(track *webrtc.TrackRemote, receiver *webrtc.RTPReceiver) {
 		log.Println("Track received:", track.Kind())
-		// Handle the track (e.g., play audio/video)
+		// track handling e.g. play audio/video
 	})
 }
 
